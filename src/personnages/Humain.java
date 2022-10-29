@@ -1,8 +1,8 @@
 package personnages;
 
 public class Humain {
-	private String nom;
-	private String boissonfav;
+	protected String nom;
+	protected String boissonfav;
 	protected int argent;
 	
 	
