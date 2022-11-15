@@ -5,12 +5,15 @@ public class Humain {
 	protected String boissonfav;
 	protected int argent;
 	private Humain[] memoire;
+	private int nbHumainEnMemoire = 0;
+	private int nbHumainMax = 30;
 	
-	public Humain(String nom, String boissonfav, int argent,) {
+	
+	public Humain(String nom, String boissonfav, int argent) {
 		this.nom = nom;
 		this.boissonfav = boissonfav;
 		this.argent = argent;
-		this.me
+		this.memoire = new Humain[nbHumainMax];
 	}
 
 	protected String getNom() {
@@ -49,11 +52,37 @@ public class Humain {
 		
 	}
 	public void faireConnaissanceAvec(Humain humain) {
-		
+		direBonjour();
+		humain.repondre(this);
+		memoriser(humain);
 	}
 	
 	public void memoriser(Humain humain) {
-		
+		if(nbHumainEnMemoire < nbHumainMax) {
+			memoire[nbHumainEnMemoire] = humain;
+			nbHumainEnMemoire++;
+		}
+		else if(nbHumainEnMemoire == nbHumainMax){
+			Humain current = memoire[nbHumainEnMemoire-1];
+			memoire[nbHumainEnMemoire-1] = humain;
+			for(int i=0; i < nbHumainEnMemoire-1; i++) {
+				memoire[nbHumainEnMemoire] = memoire[nbHumainEnMemoire+1];
+			}
+			memoire[nbHumainEnMemoire-2] = current;
+		}	
+	}
+	
+	public void repondre(Humain humain) {
+		direBonjour();
+		memoriser(humain);
+	}
+	
+	public void listerConnaissance() {
+		String affichage = "Je connais beaucoup de monde dont ";
+		for(int i=0; i < nbHumainEnMemoire; i++) {
+			affichage += memoire[i].getNom() + ", ";
+		}
+		System.out.println(affichage);
 	}
 
 }
