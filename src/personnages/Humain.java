@@ -4,12 +4,13 @@ public class Humain {
 	protected String nom;
 	protected String boissonfav;
 	protected int argent;
+	private Humain[] memoire;
 	
-	
-	public Humain(String nom, String boissonfav, int argent) {
+	public Humain(String nom, String boissonfav, int argent,) {
 		this.nom = nom;
 		this.boissonfav = boissonfav;
 		this.argent = argent;
+		this.me
 	}
 
 	protected String getNom() {
@@ -45,6 +46,13 @@ public class Humain {
 		} else if (prix > argent) {
 			parler("Je n'ai plus que " + argent + " sous en poche. Je ne peux meme pas m'offrir " + bien + " a " + prix + " sous");
 		}
+		
+	}
+	public void faireConnaissanceAvec(Humain humain) {
+		
+	}
+	
+	public void memoriser(Humain humain) {
 		
 	}
 
