@@ -51,11 +51,7 @@ public class Humain {
 		}
 		
 	}
-	public void faireConnaissanceAvec(Humain humain) {
-		direBonjour();
-		humain.repondre(this);
-		memoriser(humain);
-	}
+	
 	
 	public void memoriser(Humain humain) {
 		if(nbHumainEnMemoire < nbHumainMax) {
@@ -63,17 +59,23 @@ public class Humain {
 			nbHumainEnMemoire++;
 		}
 		else if(nbHumainEnMemoire == nbHumainMax){
-			Humain current = memoire[nbHumainEnMemoire-1];
-			memoire[nbHumainEnMemoire-1] = humain;
-			for(int i=0; i < nbHumainEnMemoire-1; i++) {
-				memoire[nbHumainEnMemoire] = memoire[nbHumainEnMemoire+1];
+//			Humain current = memoire[nbHumainEnMemoire-1];
+//			memoire[nbHumainEnMemoire-1] = humain;
+			for(int i=0; i < nbHumainMax-1; i++) {
+				memoire[i] = memoire[i+1];
 			}
-			memoire[nbHumainEnMemoire-2] = current;
+			memoire[nbHumainMax -1] = humain;
 		}	
 	}
 	
 	public void repondre(Humain humain) {
 		direBonjour();
+		memoriser(humain);
+	}
+	
+	public void faireConnaissanceAvec(Humain humain) {
+		direBonjour();
+		humain.repondre(this);
 		memoriser(humain);
 	}
 	
