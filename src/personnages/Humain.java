@@ -4,9 +4,9 @@ public class Humain {
 	protected String nom;
 	protected String boissonfav;
 	protected int argent;
-	private Humain[] memoire;
-	private int nbHumainEnMemoire = 0;
-	private int nbHumainMax = 3;
+	protected Humain[] memoire;
+	protected int nbHumainEnMemoire = 0;
+	protected int nbHumainMax = 30;
 	
 	
 	public Humain(String nom, String boissonfav, int argent) {
@@ -32,7 +32,7 @@ public class Humain {
 	public void direBonjour() {
 		parler("Bonjour ! Je m'appelle " + nom + " et j'aime boire du " + boissonfav);
 	}
-	public void boire() {
+	protected void boire() {
 		parler("Mmmm, un bon verre de " + boissonfav + " ! Gloups ! ");
 	}
 	protected void gagnerArgent(int gain) {
@@ -80,11 +80,11 @@ public class Humain {
 	}
 	
 	public void listerConnaissance() {
-		String affichage = "Je connais beaucoup de monde dont ";
+		String affichage = "Je connais beaucoup de monde dont: ";
 		for(int i=0; i < nbHumainEnMemoire; i++) {
 			affichage += memoire[i].getNom() + ", ";
 		}
-		System.out.println(affichage);
+		parler(affichage);
 	}
 
 }
