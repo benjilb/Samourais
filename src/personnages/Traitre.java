@@ -1,16 +1,19 @@
 package personnages;
 
-public class Traitre extends Humain{
+public class Traitre extends Samourai{
 	private int niveauTraitrise = 0;
 	
 	
-	public Traitre(String nom, String boissonfav, int argent) {
-		super(nom, boissonfav, argent);
+	
+	public Traitre(String seigneur, String nom, String boissonfav, int argent) {
+		super(seigneur, nom, boissonfav, argent);
+		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public void direBonjour() {
 		parler("Bonjour ! Je m'appelle " + nom + " et j'aime boire du " + boissonfav);
-		parler("mon niveau de traitrise est " + niveauTraitrise);
+		parler("Je suis fier de servir le seigneur " + getSeigneur());
+		parler("Mais je suis un traitre et mon niveau de traitrise est " + niveauTraitrise);
 	}
 	public void ranconner(Commercant commercant) {
 		if (niveauTraitrise<3) {

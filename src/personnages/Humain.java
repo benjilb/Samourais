@@ -6,7 +6,7 @@ public class Humain {
 	protected int argent;
 	protected Humain[] memoire;
 	protected int nbHumainEnMemoire = 0;
-	protected int nbHumainMax = 30;
+	private int nbHumainMax = 30;
 	
 	
 	public Humain(String nom, String boissonfav, int argent) {
@@ -53,7 +53,7 @@ public class Humain {
 	}
 	
 	
-	public void memoriser(Humain humain) {
+	protected void memoriser(Humain humain) {
 		if(nbHumainEnMemoire < nbHumainMax) {
 			memoire[nbHumainEnMemoire] = humain;
 			nbHumainEnMemoire++;

@@ -13,6 +13,12 @@ public class Samourai extends Humain{
 		parler("Je suis fier de servir le seigneur " + seigneur);
 	}
 	
+	public String getSeigneur() {
+		return seigneur;
+	}
+	public void setSeigneur(String seigneur) {
+		this.seigneur = seigneur;
+	}
 	public void boire(String boisson) {
 		parler("Qu'est ce que je vais choisir comme boisson ? Tiens je vais prendre du " + boisson);
 	}
